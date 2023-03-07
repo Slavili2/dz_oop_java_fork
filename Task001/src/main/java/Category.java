@@ -43,14 +43,24 @@ public class Category {
         return this.productList.add(userProduct);
     }
 
+    /**
+     * Получение товара по его имени
+     * @param productName
+     * @return
+     */
     public Product getItemFromProductList(String productName) {
         int tempInt = -1;
         for (var item: this.productList) {
-            if(item.getProductName() == productName)
+            if(item.getProductName().equalsIgnoreCase(productName) == true){
                 tempInt = this.productList.indexOf(item);
                 break;
+            }
+
         }
-         return this.productList.get(tempInt);
+        if(tempInt!=-1)
+            return this.productList.get(tempInt);
+        else
+            return new Product("NONE",  0,0,0);
     }
 
     /**
