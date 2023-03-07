@@ -30,5 +30,19 @@ public class Program {
         for (var item: category1.getProductList()) {
             System.out.println(((Product)item).allProductInformation());
         }
+
+        //System.out.println(category1.getItemFromProductList("BMW"));
+        System.out.println("*************************************************");
+        category1.getItemFromProductList("BMW");
+        Basket bask1 = new Basket();
+        Basket bask2 = new Basket();
+        bask1.addProductIntoBasket(category1.getItemFromProductList("BMW"));
+
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+        for (var item: bask1.getProductsFromBasket()) {
+            System.out.println(item.allProductInformation());
+        }
+
     }
 }

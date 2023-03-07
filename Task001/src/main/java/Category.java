@@ -43,6 +43,16 @@ public class Category {
         return this.productList.add(userProduct);
     }
 
+    public Product getItemFromProductList(String productName) {
+        int tempInt = -1;
+        for (var item: this.productList) {
+            if(item.getProductName() == productName)
+                tempInt = this.productList.indexOf(item);
+                break;
+        }
+         return this.productList.get(tempInt);
+    }
+
     /**
      * Удаление товара из списка по его имени
      * @param nameOfProduct - имя товара
