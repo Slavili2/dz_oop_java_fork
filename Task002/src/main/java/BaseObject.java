@@ -2,27 +2,45 @@
  * Базовый класс
  */
 public abstract class BaseObject {
-    protected int avgSpeedRun;
-    protected int maxJump;
+    private int maxDistance;
+    private double maxJump;
 
-    public BaseObject(int avgSpeedRun, int maxJump) {
-        this.avgSpeedRun = avgSpeedRun;
+    private boolean raceResult = true;
+
+    public BaseObject(int maxDistance, double maxJump) {
+        this.maxDistance = maxDistance;
         this.maxJump = maxJump;
     }
 
-    public abstract int getAvgSpeedRun();
+    public double getMaxDistance(){
+        return this.maxDistance;
+    }
 
-    public abstract int getMaxJump();
+    public double getMaxJump(){
+        return this.maxJump;
+    }
+
+    public void updateDistance(int distance) {
+        this.maxDistance = this.maxDistance - distance;
+    }
+
+    public void setRaceResult(boolean raceResult) {
+        this.raceResult = raceResult;
+    }
+
+    public boolean isRaceResult() {
+        return this.raceResult;
+    }
 
     /**
      * Способность перепрыгивать через стену
      * @return - true - объект перепрыгнул, false - объект не смог перепрыгнуть
      */
-    public abstract boolean wallJump();
+    public abstract boolean wallJump(Obstacles obstacl);
 
     /**
      * Преодоление дистанции бегом
      * @return - true - пробежал, false - не смог пробежать
      */
-    public abstract boolean runningOnTheTrack();
+    public abstract boolean runningOnTheTrack(Obstacles obstacl);
 }
