@@ -5,11 +5,14 @@ public abstract class BaseObject {
     private int maxDistance;
     private double maxJump;
 
+    private String nameOfObject;
+
     private boolean raceResult = true;
 
-    public BaseObject(int maxDistance, double maxJump) {
+    public BaseObject(int maxDistance, double maxJump, String nameOfObject) {
         this.maxDistance = maxDistance;
         this.maxJump = maxJump;
+        this.nameOfObject = nameOfObject;
     }
 
     public double getMaxDistance(){
@@ -30,6 +33,10 @@ public abstract class BaseObject {
 
     public boolean isRaceResult() {
         return this.raceResult;
+    }
+
+    public String getNameOfObject() {
+        return nameOfObject;
     }
 
     /**

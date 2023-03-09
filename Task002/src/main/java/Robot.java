@@ -1,6 +1,6 @@
-public class Human extends BaseObject {
+public class Robot extends BaseObject {
 
-    public Human(int maxDistance, double maxJump, String nameOfObject) {
+    public Robot(int maxDistance, double maxJump, String nameOfObject) {
         super(maxDistance, maxJump, nameOfObject);
     }
 
