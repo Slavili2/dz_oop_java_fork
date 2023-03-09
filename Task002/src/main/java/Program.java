@@ -13,7 +13,7 @@ public class Program {
         ArrayList<BaseObject> participantsOfTheCompetition = new ArrayList<>();
         participantsOfTheCompetition.add(new Human(42000, 1.5, "Царь Леонид"));
         participantsOfTheCompetition.add(new Cat(15000, 2.7, "Кот-Абармот"));
-        participantsOfTheCompetition.add(new Cat(1000000, 6, "Терминатор"));
+        participantsOfTheCompetition.add(new Robot(1000000, 6, "Терминатор T-800"));
 
         System.out.println("В эстафете принимают участие:");
         for (var participant:  participantsOfTheCompetition) {
