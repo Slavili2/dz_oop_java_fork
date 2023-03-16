@@ -69,7 +69,9 @@ public abstract class AbstractGame implements Game {
         }
 
     }
-
+    public String getWord(){
+        return this.word;
+    }
     abstract List<String> generateCharList();
 }
 

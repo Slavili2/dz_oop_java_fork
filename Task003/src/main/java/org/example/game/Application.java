@@ -8,7 +8,7 @@ public class Application {
         System.out.println("2-буквы EN");
         System.out.println("3-буквы RU");
         Scanner in=new Scanner(System.in);
-        System.out.println("Выберите игру");
+        System.out.print("Выберите игру: ");
         int num=in.nextInt();
         Game game = null;
         switch (num){
@@ -28,6 +28,7 @@ public class Application {
             Answer answerGame=game.inputAnswer(answer);
             System.out.println(String.format("Найдено %d коров и %d быков",answerGame.getCows(),answerGame.getBulls()));
         }
+        System.out.println("Загаданное слово: " + game.getWord());
         System.out.println(game.getGameStatus());
     }
 }
