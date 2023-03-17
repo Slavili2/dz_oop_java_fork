@@ -14,16 +14,16 @@ public class Application {
         switch (num){
             case 1:game=new NumberGame();
                 break;
-//            case 2:game=new WordGame();
-//                break;
-//            case 3:game=new WordRussianGame();
-//                break;
+            case 2:game=new WordGame();
+               break;
+            case 3:game=new WordRussianGame();
+                break;
             default:
-                System.out.println("такой игры еще не существует");
+                System.out.println("Такой игры еще не существует!");
         }
         game.start(4,2);
         while(game.getGameStatus().equals(GameStatus.START)){
-            System.out.println("ваш ход");
+            System.out.println("Ваш ход:");
             String answer=in.next();
             Answer answerGame=game.inputAnswer(answer);
             System.out.println(String.format("Найдено %d коров и %d быков",answerGame.getCows(),answerGame.getBulls()));
