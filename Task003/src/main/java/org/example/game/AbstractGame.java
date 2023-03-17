@@ -19,6 +19,16 @@ public abstract class AbstractGame implements Game {
     static int countTry;
     GameStatus gameStatus = GameStatus.INIT;
 
+    private List<String> dataWareHouse = new ArrayList<>();
+
+    public void setDataWareHouse(String listItem){
+        this.dataWareHouse.add(listItem);
+    }
+
+    public List<String>  getDataWareHouse(){
+        return this.dataWareHouse;
+    }
+
     private String generateWord() {
         List<String> charList = generateCharList();
         SecureRandom random = new SecureRandom();

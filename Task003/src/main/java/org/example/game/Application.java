@@ -27,8 +27,20 @@ public class Application {
             String answer=in.next();
             Answer answerGame=game.inputAnswer(answer);
             System.out.println(String.format("Найдено %d коров и %d быков",answerGame.getCows(),answerGame.getBulls()));
+            game.setDataWareHouse(answer);
         }
         System.out.println("Загаданное слово: " + game.getWord());
         System.out.println(game.getGameStatus());
+        System.out.println("Вывести историю ходов: y - да, n - нет:");
+        String result=in.next();
+
+
+        if(result.equals("y")){
+            System.out.println("Ваши ходы:");
+            for (var item: game.getDataWareHouse()) {
+                System.out.println(item);
+            }
+        }
+
     }
 }
