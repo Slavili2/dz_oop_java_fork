@@ -7,17 +7,8 @@ public class StudyGroupService {
        groups = new ArrayList<>();
     }
 
-    public void addGroup(){
-        for (int i = 1; i <= 5; i++) {
-            StudyGroup grp = new StudyGroup();
-            grp.setTeacher(String.format("Teacher %d", i));
-            for (int j = 1; j <=10; j++) {
-                grp.setStudents(String.format("Student %d", j));
-            }
-
-            groups.add(grp);
-
-        }
+    public void addGroup(String teacher, List<String> students){
+        groups.add(new StudyGroup(teacher, students));
 
     }
     public List<StudyGroup> getGroups(){

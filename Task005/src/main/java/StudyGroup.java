@@ -5,21 +5,17 @@ public class StudyGroup {
     private String teacher;
     private List<String> students;
 
-    public StudyGroup(){
-        students = new ArrayList<>();
+    public StudyGroup(String teacher, List<String> studentsList){
+        this.teacher = teacher;
+        this.students = studentsList;
     }
 
-    public void setTeacher(String teacher){
-        this.teacher = teacher;
-    }
+
 
     public String getTeacher(){
         return this.teacher;
     }
 
-    public void setStudents(String nameStudent){
-        this.students.add(nameStudent);
-    }
 
     public List<String> getStudents(){
         return this.students;

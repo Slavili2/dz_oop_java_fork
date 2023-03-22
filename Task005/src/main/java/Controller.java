@@ -1,7 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller {
     public void viewGroup(){
         StudyGroupService groups = new StudyGroupService();
-        groups.addGroup();
+
+
+
+        for (int i = 1; i <= 5; i++) {
+            List<String> tempStudentsList = new ArrayList<>();
+            String tempTeacher = String.format("Teacher №%d", i);
+            for (int j = 1; j <=10; j++) {
+                tempStudentsList.add(String.format("Student №%d", j));
+            }
+            groups.addGroup(tempTeacher, tempStudentsList);
+
+        }
 
         for (var parentItem: groups.getGroups()) {
             System.out.println(parentItem.getTeacher());
