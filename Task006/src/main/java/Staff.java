@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс Staff содержит свойства и методы характерные только для преподавателей
+ * соответствует Single responsibility principle
+ * реализация интерфейса Teacher  - это соответствие Liskov substitution principle
+ */
 public class Staff extends PeopleOfUniversity implements Teacher{
 
     private List<String> academicSubjects;

@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс StudyGroupService формирует набор групп во главе с преподавателем
+ */
 public class StudyGroupService {
     private List<StudyGroup> groups;
     public StudyGroupService(){

@@ -3,8 +3,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Класс StudyGroup формирует группу связывая преподавателя и нескольких студентов.
+ * соответствует Single responsibility principle
+ */
 public class StudyGroup {
-    //private Map<Staff, List<Student>> group = new HashMap<>();
     private Staff teacher;
     private List<Student> students;
 

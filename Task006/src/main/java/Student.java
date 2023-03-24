@@ -1,3 +1,8 @@
+/**
+ * Класс Student содержит свойства и методы характерные только для студентов
+ * соответствует Single responsibility principle
+ * реализация интерфейса BaseStudent  - это соответствие Liskov substitution principle
+ */
 public class Student extends PeopleOfUniversity implements BaseStudent{
     private String nameOfGroup;
     private int courseNumber;
