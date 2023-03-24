@@ -1,23 +1,24 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StudyGroup {
-    private String teacher;
-    private List<String> students;
+    //private Map<Staff, List<Student>> group = new HashMap<>();
+    private Staff teacher;
+    private List<Student> students;
 
-    public StudyGroup(String teacher, List<String> studentsList){
+    public StudyGroup(Staff teacher, List<Student> studentsList){
         this.teacher = teacher;
         this.students = studentsList;
     }
 
-
-
-    public String getTeacher(){
+    public Staff getTeacher(){
         return this.teacher;
     }
 
 
-    public List<String> getStudents(){
+    public List<Student> getStudents(){
         return this.students;
     }
 }
