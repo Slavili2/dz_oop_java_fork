@@ -8,14 +8,15 @@ public final class CalculatorWithLogger implements Calculable {
     private ILogger log;
 
     public CalculatorWithLogger(String primaryArg, ILogger log) {
-        this.primaryArg = primaryArg;
-        this.primaryArgArray = partComplexToArray(primaryArg);
+        this.primaryArg = primaryArg.replaceAll("\\s", "");
+        this.primaryArgArray = partComplexToArray(this.primaryArg);
         this.log = log;
-        this.log.loggerMessage("Первое комплексное число: " + primaryArg);
+        this.log.loggerMessage("Первое комплексное число: " + this.primaryArg);
     }
 
     @Override
     public Calculable sum(String arg) {
+        arg = arg.replaceAll("\\s", "");
         this.log.loggerMessage("Второе комплексное число: " + arg);
         int[] tempArray = partComplexToArray(arg);
         int firstValue = this.primaryArgArray[0] + tempArray[0];
@@ -27,6 +28,7 @@ public final class CalculatorWithLogger implements Calculable {
 
     @Override
     public Calculable multi(String arg) {
+        arg = arg.replaceAll("\\s", "");
         this.log.loggerMessage("Второе комплексное число: " + arg);
         int[] tempArray = partComplexToArray(arg);
         int firstValue = this.primaryArgArray[0]*tempArray[0] + this.primaryArgArray[1]*tempArray[1]*(-1);
@@ -57,6 +59,7 @@ public final class CalculatorWithLogger implements Calculable {
 
     @Override
     public Calculable division(String arg) {
+        arg = arg.replaceAll("\\s", "");
         this.log.loggerMessage("Второе комплексное число: " + arg);
         int[] tempArray = partComplexToArray(arg);
         //Общий множитель в виде комплексного числа
@@ -77,6 +80,7 @@ public final class CalculatorWithLogger implements Calculable {
 
     @Override
     public int[] partComplexToArray(String arg) {
+        arg = arg.replaceAll("\\s", "");
         int[] tempArray = new int[2];
         String firstDigit="";
         String secondDigit="";

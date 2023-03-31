@@ -8,7 +8,7 @@ public final class Calculator implements Calculable {
     private int[] primaryArgArray;
 
     public Calculator(String primaryArg) {
-        this.primaryArg = primaryArg;
+        this.primaryArg = primaryArg.replaceAll("\\s", "");
         this.primaryArgArray = partComplexToArray(primaryArg);
     }
 
@@ -72,6 +72,7 @@ public final class Calculator implements Calculable {
 
     @Override
     public int[] partComplexToArray(String arg) {
+        arg = arg.replaceAll("\\s", "");
         int[] tempArray = new int[2];
         String firstDigit="";
         String secondDigit="";
@@ -87,6 +88,7 @@ public final class Calculator implements Calculable {
                 secondDigit+=dst[i];
                 counter++;
             }
+
         }
 
         if(Character.isDigit(dst[dst.length-2]) == false){

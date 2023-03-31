@@ -10,5 +10,9 @@ public class Main {
         ICalculableFactory calculableFactory = new LoggerFactory();
         ViewCalculator view = new ViewCalculator(calculableFactory);
         view.run();
+
+
+
+
     }
 }
