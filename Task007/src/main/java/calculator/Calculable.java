@@ -1,7 +1,10 @@
 package calculator;
 
 public interface Calculable {
-    Calculable sum(int arg);
-    Calculable multi(int arg);
-    int getResult();
+    Calculable sum(String arg);
+    Calculable multi(String arg);
+    Calculable division(String arg);
+    String getResult();
+
+    int[] partComplexToArray(String arg);
 }
