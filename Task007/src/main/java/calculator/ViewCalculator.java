@@ -1,3 +1,4 @@
+
 package calculator;
 
 import java.util.Scanner;
@@ -12,23 +13,28 @@ public class ViewCalculator {
 
     public void run() {
         while (true) {
-            int primaryArg = promptInt("Введите первый аргумент: ");
+            String primaryArg = promptString("Введите первый аргумент: ");
             Calculable calculator = calculableFactory.create(primaryArg);
             while (true) {
-                String cmd = prompt("Введите команду (*, +, =) : ");
+                String cmd = prompt("Введите команду (*, +, /, =) : ");
                 if (cmd.equals("*")) {
-                    int arg = promptInt("Введите второй аргумент: ");
+                    String arg = promptString("Введите второй аргумент: ");
                     calculator.multi(arg);
                     continue;
                 }
                 if (cmd.equals("+")) {
-                    int arg = promptInt("Введите второй аргумент: ");
+                    String arg = promptString("Введите второй аргумент: ");
                     calculator.sum(arg);
                     continue;
                 }
+                if (cmd.equals("/")) {
+                    String arg = promptString("Введите второй аргумент: ");
+                    calculator.division(arg);
+                    continue;
+                }
                 if (cmd.equals("=")) {
-                    int result = calculator.getResult();
-                    System.out.printf("Результат %d\n", result);
+                    String result = calculator.getResult();
+                    System.out.printf("Результат %s\n", result);
                     break;
                 }
             }
@@ -46,9 +52,11 @@ public class ViewCalculator {
         return in.nextLine();
     }
 
-    private int promptInt(String message) {
+    private String promptString(String message) {
         Scanner in = new Scanner(System.in);
         System.out.print(message);
-        return Integer.parseInt(in.nextLine());
+        return in.nextLine();
     }
 }
+
+
