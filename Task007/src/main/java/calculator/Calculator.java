@@ -43,10 +43,6 @@ public final class Calculator implements Calculable {
         return primaryArg;
     }
 
-    public void testFunc(){
-        System.out.println("Строка '"+this.primaryArg+"' длиной "+this.primaryArg.length());
-    }
-
     @Override
     public int[] partComplexToArray(String arg) {
         int[] tempArray = new int[2];
