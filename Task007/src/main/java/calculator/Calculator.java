@@ -8,7 +8,7 @@ public final class Calculator implements Calculable {
     private int[] primaryArgArray;
 
     public Calculator(String primaryArg) {
-
+        this.primaryArg = primaryArg;
         this.primaryArgArray = partComplexToArray(primaryArg);
     }
 
@@ -18,7 +18,7 @@ public final class Calculator implements Calculable {
         int firstValue = this.primaryArgArray[0] + tempArray[0];
         int secondValue = this.primaryArgArray[1] + tempArray[1];
 
-        this.primaryArg = secondValue > 0 ? firstValue + " + " + secondValue + "i":firstValue + "" + secondValue + "i";
+        this.primaryArg = secondValue > 0 ? firstValue + "+" + secondValue + "i":firstValue + "" + secondValue + "i";
         return this;
     }
 
@@ -31,13 +31,37 @@ public final class Calculator implements Calculable {
         if(secondValue == 0)
             this.primaryArg = ""+firstValue;
         else
-            this.primaryArg = secondValue > 0 ? firstValue + " + " + secondValue + "i":firstValue + "" + secondValue + "i";
+            this.primaryArg = secondValue > 0 ? firstValue + "+" + secondValue + "i":firstValue + "" + secondValue + "i";
 
         return this;
     }
 
+    private String multi(String arg1, String arg2){
+        String tempResult = "";
+        int[] tempArray1 = partComplexToArray(arg1);
+        int[] tempArray2 = partComplexToArray(arg2);
+        int firstValue = tempArray1[0]*tempArray2[0] + tempArray1[1]*tempArray2[1]*(-1);
+        int secondValue = tempArray1[1]*tempArray2[0] + tempArray1[0]*tempArray2[1];
+
+        if(secondValue == 0)
+            tempResult = ""+firstValue;
+        else
+            tempResult = secondValue > 0 ? firstValue + "+" + secondValue + "i":firstValue + "" + secondValue + "i";
+
+        return tempResult;
+    }
+
     @Override
     public Calculable division(String arg) {
+        int[] tempArray = partComplexToArray(arg);
+        //Общий множитель в виде комплексного числа
+        String tempMnozhitel = tempArray[1] > 0 ? tempArray[0] + "-" + tempArray[1] + "i":tempArray[0] + "+" + tempArray[1]*(-1) + "i";
+
+        int[] chislitel = partComplexToArray(multi(this.primaryArg, tempMnozhitel));
+        int znamenatel = Integer.parseInt(multi(arg, tempMnozhitel));
+
+        this.primaryArg = chislitel[1] > 0 ? (double)chislitel[0]/znamenatel + "+" + (double)chislitel[1]/znamenatel  + "i": (double)chislitel[0]/znamenatel + "" + (double)chislitel[1]/znamenatel + "i";
+
         return this;
     }
 
