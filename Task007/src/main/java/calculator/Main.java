@@ -6,9 +6,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        ICalculableFactory calculableFactory = new CalculableFactory();
+        //ICalculableFactory calculableFactory = new CalculableFactory();
+        ICalculableFactory calculableFactory = new LoggerFactory();
         ViewCalculator view = new ViewCalculator(calculableFactory);
         view.run();
-
     }
 }
