@@ -24,7 +24,11 @@ public final class Calculator implements Calculable {
 
     @Override
     public Calculable multi(String arg) {
-        //primaryArg *= arg;
+        int[] tempArray = partComplexToArray(arg);
+        int firstValue = this.primaryArgArray[0]*tempArray[0] + this.primaryArgArray[1]*tempArray[1]*(-1);
+        int secondValue = this.primaryArgArray[1]*tempArray[0] + this.primaryArgArray[0]*tempArray[1];
+
+        this.primaryArg = secondValue > 0 ? firstValue + " + " + secondValue + "i":firstValue + "" + secondValue + "i";
 
         return this;
     }
