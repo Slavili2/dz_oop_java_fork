@@ -28,7 +28,10 @@ public final class Calculator implements Calculable {
         int firstValue = this.primaryArgArray[0]*tempArray[0] + this.primaryArgArray[1]*tempArray[1]*(-1);
         int secondValue = this.primaryArgArray[1]*tempArray[0] + this.primaryArgArray[0]*tempArray[1];
 
-        this.primaryArg = secondValue > 0 ? firstValue + " + " + secondValue + "i":firstValue + "" + secondValue + "i";
+        if(secondValue == 0)
+            this.primaryArg = ""+firstValue;
+        else
+            this.primaryArg = secondValue > 0 ? firstValue + " + " + secondValue + "i":firstValue + "" + secondValue + "i";
 
         return this;
     }
@@ -69,7 +72,5 @@ public final class Calculator implements Calculable {
         tempArray[1] = Integer.parseInt(secondDigit);
 
         return tempArray;
-        //System.out.println("Первое число из массива: "+ this.primaryArgArray[0]);
-        //System.out.println("Второе число из массива: "+ this.primaryArgArray[1]);
     }
 }
